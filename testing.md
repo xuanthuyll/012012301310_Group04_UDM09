@@ -75,3 +75,51 @@ Hệ thống sử dụng thư viện bảo mật `cryptography` để triển kh
 
 ## III. KẾT LUẬN 
 Qua đợt kiểm thử chuyên sâu (Functional & Stress Test), sản phẩm mã nguồn P2PChat của nhóm đáp ứng hoàn hảo các tiêu chí đề ra. Cơ chế mã hóa bảo mật hoạt động an toàn dưới nền, kiến trúc đa luồng phân tách tác vụ mạng tốt giúp tối ưu hóa trải nghiệm người dùng trên GUI. Hệ thống sẵn sàng đóng gói cho các đợt phát triển tính năng tiếp theo.
+
+---
+
+# Sprint 3 Features
+
+## File Transfer Receive
+
+Sprint 3 bổ sung chức năng nhận file P2P.
+
+### Thành phần chính
+
+- TransferStateMachine
+- DownloadManager
+- FileReceiver
+
+### Tính năng
+
+- Nhận file theo từng chunk
+- Hỗ trợ out-of-order chunks
+- Tự động reassemble file
+- Verify checksum (MD5/SHA256)
+- Tự động đổi tên file khi trùng
+- Timeout handling
+
+### Chạy test
+
+```bash
+python -m unittest discover -v
+```
+
+### Kết quả kiểm thử
+
+```text
+Ran 14 tests
+OK
+```
+
+### Files phụ trách
+
+- transfer/state_machine.py
+- transfer/download_manager.py
+- transfer/receiver.py
+
+- test/test_identity.py
+- test/test_trust.py
+- test/test_storage.py
+- test/test_transfer.py
+- test/test_transfer_system.py
