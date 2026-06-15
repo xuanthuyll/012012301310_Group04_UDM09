@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*.pyc
 
 # Virtual environments
 venv/
@@ -24,3 +25,5 @@ dist/
 # PyInstaller
 *.spec
 
+# Git
+.git

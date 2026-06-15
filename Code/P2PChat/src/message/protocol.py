@@ -49,6 +49,7 @@ class ProtocolHandler:
 
         if crypto is not None:
             payload: Any = crypto.encrypt(payload_content)
+
         else:
             payload = payload_content
         
@@ -65,7 +66,7 @@ class ProtocolHandler:
     #serialization and deserialization methods for framing packets with a length header
     def serialize(self, packet: dict[str, Any]) -> bytes:
         """Serialize *packet* into a 4-byte length-prefixed byte stream."""
-        #Format: [Header][json_payload
+        #Format: [Header][json_payload]
 
         json_data = json.dumps(packet).encode('utf-8')
         return struct.pack("!I", len(json_data)) + json_data
